@@ -1,0 +1,26 @@
+# ci.yml: lint and test Quick Poll on every pull request and push to main
+name: CI
+
+on:
+  pull_request:
+    branches: [main]
+  push:
+    branches: [main]
+
+permissions:
+  contents: read
+
+jobs:
+  lint-and-test:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v5
+      - uses: actions/setup-python@v6
+        with:
+          python-version: "3.14"
+      - name: Install the packages
+        run: pip install -r requirements.txt -r requirements-dev.txt
+      - name: Lint with ruff
+        run: ruff check .
+      - name: Run the tests
+        run: pytest
