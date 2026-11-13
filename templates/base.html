@@ -1,0 +1,21 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>{% block title %}{{ app_title }}{% endblock %}</title>
+  <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+  <header class="topbar">
+    <a class="brand" href="{{ url_for('index') }}"><span class="logo">&#10003;</span> {{ app_title }}</a>
+    <span class="env env-{{ app_env }}">{{ app_env }}</span>
+  </header>
+  <main class="container">
+    {% block content %}{% endblock %}
+  </main>
+  <footer class="footer">
+    {{ app_title }} version {{ version }} &middot; environment {{ app_env }} &middot; served by {{ host }}
+  </footer>
+</body>
+</html>

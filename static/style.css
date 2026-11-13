@@ -1,0 +1,52 @@
+/* style.css: the look of Quick Poll. Change --accent to give the app a new colour. */
+:root {
+  --accent: #4f46e5;
+  --accent-soft: #eef2ff;
+  --text: #1f2937;
+  --muted: #6b7280;
+  --bg: #f5f7fb;
+  --card: #ffffff;
+  --border: #e5e7eb;
+}
+* { box-sizing: border-box; }
+body { margin: 0; font-family: system-ui, -apple-system, "Segoe UI", Roboto, sans-serif; background: var(--bg); color: var(--text); }
+a { color: inherit; text-decoration: none; }
+.topbar { display: flex; justify-content: space-between; align-items: center; padding: 14px 24px; background: var(--card); border-bottom: 1px solid var(--border); }
+.brand { font-weight: 700; font-size: 1.15rem; display: flex; align-items: center; gap: 8px; }
+.logo { display: inline-grid; place-items: center; width: 30px; height: 30px; border-radius: 8px; background: var(--accent); color: #fff; }
+.env { font-size: .75rem; font-weight: 700; text-transform: uppercase; padding: 4px 10px; border-radius: 999px; background: #e5e7eb; }
+.env-dev { background: #fef3c7; color: #92400e; }
+.env-prod { background: #dcfce7; color: #166534; }
+.container { max-width: 960px; margin: 0 auto; padding: 32px 20px 64px; }
+.hero { background: linear-gradient(135deg, var(--accent), #7c3aed); color: #fff; border-radius: 18px; padding: 40px 32px; margin-bottom: 32px; }
+.hero h1 { margin: 0 0 8px; font-size: 1.9rem; }
+.hero p { margin: 0 0 20px; opacity: .9; }
+.hero .button { background: #fff; color: var(--accent); }
+.button { display: inline-block; border: 0; cursor: pointer; background: var(--accent); color: #fff; font-weight: 600; font-size: 1rem; padding: 12px 22px; border-radius: 10px; }
+.section-title { font-size: 1.05rem; color: var(--muted); margin: 28px 0 14px; }
+.grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(260px, 1fr)); gap: 16px; }
+.card { background: var(--card); border: 1px solid var(--border); border-radius: 16px; padding: 22px; }
+.poll-card { transition: transform .15s, box-shadow .15s; }
+.poll-card:hover { transform: translateY(-3px); box-shadow: 0 10px 24px rgba(0,0,0,.07); }
+.poll-card h3 { margin: 0 0 6px; font-size: 1.05rem; }
+.muted { color: var(--muted); }
+.mini-bar { height: 6px; background: var(--accent-soft); border-radius: 99px; margin-top: 8px; overflow: hidden; }
+.mini-bar span { display: block; height: 100%; background: var(--accent); }
+.narrow { max-width: 620px; margin: 0 auto; }
+.narrow h1 { margin-top: 6px; }
+.back { color: var(--accent); font-weight: 600; font-size: .9rem; }
+label { display: block; font-weight: 600; margin: 18px 0 8px; }
+input { width: 100%; padding: 11px 13px; border: 1px solid var(--border); border-radius: 10px; font-size: 1rem; margin-bottom: 8px; }
+input:focus { outline: 2px solid var(--accent); border-color: transparent; }
+form .button { margin-top: 14px; }
+.choices { display: grid; gap: 10px; }
+.choice { text-align: left; padding: 14px 16px; border: 2px solid var(--border); border-radius: 12px; background: var(--card); font-size: 1rem; cursor: pointer; }
+.choice:hover { border-color: var(--accent); background: var(--accent-soft); }
+.result { margin-bottom: 14px; }
+.result-head { display: flex; justify-content: space-between; margin-bottom: 6px; font-weight: 600; }
+.count { color: var(--muted); font-weight: 500; }
+.bar { height: 14px; background: var(--accent-soft); border-radius: 99px; overflow: hidden; }
+.bar span { display: block; height: 100%; background: var(--accent); border-radius: 99px; transition: width .6s ease; }
+.success { background: #dcfce7; color: #166534; padding: 10px 14px; border-radius: 10px; }
+.error { background: #fee2e2; color: #991b1b; padding: 10px 14px; border-radius: 10px; }
+.footer { text-align: center; color: var(--muted); font-size: .85rem; padding: 20px; }

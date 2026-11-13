@@ -1,0 +1,6 @@
+# .gitignore: files Git should not track
+.venv/
+data/
+__pycache__/
+.pytest_cache/
+.ruff_cache/

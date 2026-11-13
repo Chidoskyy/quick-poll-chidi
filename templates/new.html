@@ -1,0 +1,17 @@
+{% extends "base.html" %}
+{% block title %}New poll &middot; {{ app_title }}{% endblock %}
+{% block content %}
+<div class="card narrow">
+  <h1>Create a poll</h1>
+  {% if error %}<p class="error">{{ error }}</p>{% endif %}
+  <form method="post">
+    <label for="question">Question</label>
+    <input id="question" name="question" maxlength="140" value="{{ question }}" placeholder="What should we automate next?" required>
+    <label>Options (two to six)</label>
+    {% for i in range(6) %}
+    <input name="option" maxlength="60" value="{{ labels[i] if i < labels|length else '' }}" placeholder="Option {{ i + 1 }}{{ ' (optional)' if i >= 2 else '' }}">
+    {% endfor %}
+    <button class="button" type="submit">Create poll</button>
+  </form>
+</div>
+{% endblock %}

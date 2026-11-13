@@ -1,0 +1,20 @@
+{% extends "base.html" %}
+{% block content %}
+<section class="hero">
+  <h1>Ask a question. Get answers in seconds.</h1>
+  <p>Create a poll, share it with your class, and watch the results update live.</p>
+  <a class="button" href="{{ url_for('new_poll') }}">Create a poll</a>
+</section>
+<h2 class="section-title">Polls</h2>
+<div class="grid">
+  {% for poll in polls %}
+  <a class="card poll-card" href="{{ url_for('show_poll', poll_id=poll.id) }}">
+    <h3>{{ poll.question }}</h3>
+    <p class="muted">{{ poll.options|length }} options &middot; {{ poll.total }} vote{{ '' if poll.total == 1 else 's' }}</p>
+    {% for o in poll.options[:3] %}
+    <div class="mini-bar"><span style="width: {{ o.percent }}%"></span></div>
+    {% endfor %}
+  </a>
+  {% endfor %}
+</div>
+{% endblock %}
